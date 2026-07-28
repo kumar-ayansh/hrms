@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" th:replace="~{base::layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Login - HR Synergy</title>
+</head>
+<body>
+<main>
+    <div class="container py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-lg-6 bg-primary left-panel p-5 text-white">
+                            <i class="fa-solid fa-user-shield fa-3x svg mb-3"></i>
+                            <h2 class="fw-bold text-white mb-3">Admin Portal</h2>
+                            <p class="mb-4">Administrative access to manage workspace, employees, applications, and system configuration.</p>
+                            
+                            <div class="d-flex flex-column gap-2">
+                                <p class="mb-0"><i class="fa-solid fa-circle-check text-warning me-2"></i> Full System Administration</p>
+                                <p class="mb-0"><i class="fa-solid fa-circle-check text-warning me-2"></i> Employee & Job Management</p>
+                                <p class="mb-0"><i class="fa-solid fa-circle-check text-warning me-2"></i> Enquiry & Response Handling</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 p-5 bg-white">
+                            <h2 class="fw-bold text-navy mb-2">Admin Login</h2>
+                            <p class="text-muted mb-4">Enter administrative credentials to continue</p>
+                            
+                            <div th:if="${msg}" class="alert alert-danger mb-3" role="alert" th:text="${msg}"></div>
+
+                            <form method="post" th:action="@{/adminlogin}" th:object="${aidto}">
+                                <div class="mb-3 fw-bold">
+                                    <label class="form-label">Admin ID</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-user-gear text-primary"></i></span>
+                                        <input type="text" name="adminid" th:value="${aidto.adminid}" class="form-control py-3 border-start-0" placeholder="Enter your Admin ID" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 fw-bold">
+                                    <label class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-key text-primary"></i></span>
+                                        <input type="password" name="password" th:value="${aidto.password}" class="form-control py-3 border-start-0" placeholder="Enter your password" required>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-blue-primary w-100 py-3 rounded-pill fs-6 fw-bold">
+                                    <i class="fa-solid fa-user-shield me-2"></i> Admin Login
+                                </button>
+                            </form>
+
+                            <div class="text-center fw-semibold fs-6 mt-4">
+                                <a th:href="@{/login}" class="text-primary text-decoration-none">Switch to User Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

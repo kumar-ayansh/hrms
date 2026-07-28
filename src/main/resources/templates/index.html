@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" th:replace="~{base::layout(~{::main})}" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<title>HR Synergy - Smart Human Resource Solution</title>
+</head>
+
+<body>
+<main>
+	<!-- Hero Section Start -->
+	<section class="hero-section">
+		<div class="container">
+			<div class="row align-items-center g-5">
+				<div class="col-lg-6">
+					<div class="pe-lg-3">
+						<span class="badge-blue-subtle mb-3">
+							<i class="fa-solid fa-bolt text-primary"></i> Next-Gen HR Management
+						</span>
+						<h1 class="display-4 fw-extrabold text-navy mb-3" style="letter-spacing: -1px; line-height: 1.2;">
+							Manage Your Human Resources <span class="text-gradient-blue">Smarter & Faster</span>
+						</h1>
+						<p class="lead text-muted mb-4" style="font-size: 1.15rem; line-height: 1.7;">
+							HR Synergy is an all-in-one digital platform empowering modern organizations with automated employee management, attendance tracking, leave processing, payroll, and recruitment workflows.
+						</p>
+						<div class="d-flex flex-wrap gap-3 mb-4">
+							<a th:href="@{/login}" class="btn btn-blue-primary px-4 py-3 fs-6">
+								<i class="fa-solid fa-right-to-bracket me-2"></i> Employee Portal
+							</a>
+							<a th:href="@{/registration}" class="btn btn-blue-outline px-4 py-3 fs-6">
+								<i class="fa-solid fa-user-plus me-2"></i> Register as Job Seeker
+							</a>
+						</div>
+						<div class="d-flex align-items-center gap-4 pt-2 border-top border-blue-subtle">
+							<div class="d-flex align-items-center gap-2">
+								<i class="fa-solid fa-shield-check text-primary fs-4"></i>
+								<span class="fw-semibold text-secondary" style="font-size: 0.9rem;">Role-Based Security</span>
+							</div>
+							<div class="d-flex align-items-center gap-2">
+								<i class="fa-solid fa-clock-rotate-left text-primary fs-4"></i>
+								<span class="fw-semibold text-secondary" style="font-size: 0.9rem;">Real-Time Tracking</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="hero-img-wrapper shadow-lg">
+						<img th:src="@{/images/hrms-banner.jpeg}" alt="HR Synergy Dashboard Banner" class="img-fluid" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section End -->
+
+	<!-- Key Highlights Stats Row -->
+	<section class="py-5 bg-white">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-3 col-sm-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-3">
+							<i class="fa-solid fa-laptop-code"></i>
+						</div>
+						<h3 class="fw-bold text-navy mb-1">100%</h3>
+						<p class="text-muted fw-semibold mb-0">Digital Workflow</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-3">
+							<i class="fa-solid fa-clock"></i>
+						</div>
+						<h3 class="fw-bold text-navy mb-1">24 / 7</h3>
+						<p class="text-muted fw-semibold mb-0">Self-Service Access</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-3">
+							<i class="fa-solid fa-shield-halved"></i>
+						</div>
+						<h3 class="fw-bold text-navy mb-1">Secure</h3>
+						<p class="text-muted fw-semibold mb-0">Role & Portal Control</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-3">
+							<i class="fa-solid fa-gauge-high"></i>
+						</div>
+						<h3 class="fw-bold text-navy mb-1">Smart</h3>
+						<p class="text-muted fw-semibold mb-0">HR Operations</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Platform Overview Section -->
+	<section class="py-5 bg-soft-blue border-top border-bottom border-blue-subtle">
+		<div class="container">
+			<div class="row align-items-center g-5">
+				<div class="col-lg-6">
+					<div class="position-relative">
+						<img th:src="@{/images/corporate.jpeg}" alt="Corporate HR Management" class="img-fluid rounded-4 shadow-lg border border-white" onerror="this.src='https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80'">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<span class="badge-blue-subtle mb-2">About HR Synergy</span>
+					<h2 class="display-6 fw-bold text-navy mb-3">Complete Human Capital Management Suite</h2>
+					<p class="text-muted mb-4 fs-6">
+						HR Synergy eliminates manual paperwork and fragmented processes by unifying employee lifecycle events, attendance logs, leave processing, and job applicant tracking into a single, intuitive interface.
+					</p>
+
+					<div class="row g-3">
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Employee Management</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Attendance Tracking</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Leave Approvals</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Payroll Management</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Recruitment Portal</span>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="feature-pill">
+								<i class="fa-solid fa-check"></i>
+								<span>Enquiry & Support</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- HRMS Core Modules Section -->
+	<section class="py-5 bg-white">
+		<div class="container">
+			<div class="text-center max-width-700 mx-auto mb-5">
+				<span class="badge-blue-subtle mb-2">Powerful Features</span>
+				<h2 class="display-6 fw-bold text-navy">Built for Efficiency & Scale</h2>
+				<p class="text-muted fs-6">Explore the modular capabilities that make HR Synergy the preferred choice for modern enterprises.</p>
+			</div>
+
+			<div class="row g-4">
+				<div class="col-lg-3 col-md-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-4">
+							<i class="fa-solid fa-user-group"></i>
+						</div>
+						<h5 class="fw-bold text-navy mb-2">Employee Directory</h5>
+						<p class="text-muted small mb-0">Maintain centralized employee profiles, department mapping, and professional records securely.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-4">
+							<i class="fa-solid fa-calendar-check"></i>
+						</div>
+						<h5 class="fw-bold text-navy mb-2">Attendance Tracking</h5>
+						<p class="text-muted small mb-0">Monitor daily attendance, check-in logs, and generate detailed attendance analytics.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-4">
+							<i class="fa-solid fa-plane-departure"></i>
+						</div>
+						<h5 class="fw-bold text-navy mb-2">Leave Management</h5>
+						<p class="text-muted small mb-0">Streamline leave requests, manager approvals, and automated leave balance deductions.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="theme-card p-4 text-center h-100">
+						<div class="icon-box-blue mb-4">
+							<i class="fa-solid fa-money-check-dollar"></i>
+						</div>
+						<h5 class="fw-bold text-navy mb-2">Automated Payroll</h5>
+						<p class="text-muted small mb-0">Manage salary structures, deductions, payslips, and compliance records hassle-free.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Workflow Steps Section -->
+	<section class="py-5 bg-soft-blue border-top border-bottom border-blue-subtle">
+		<div class="container">
+			<div class="text-center mb-5">
+				<span class="badge-blue-subtle mb-2">System Workflow</span>
+				<h2 class="display-6 fw-bold text-navy">How HR Synergy Operates</h2>
+				<p class="text-muted fs-6">A clear, 3-step process designed for seamless organization-wide deployment.</p>
+			</div>
+
+			<div class="row g-4">
+				<div class="col-lg-4">
+					<div class="step-card h-100">
+						<div class="step-number">01</div>
+						<h4 class="fw-bold text-navy mb-3">Admin Setup</h4>
+						<p class="text-muted mb-0">Administrators set up departments, define job listings, register staff members, and set access parameters.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="step-card h-100">
+						<div class="step-number">02</div>
+						<h4 class="fw-bold text-navy mb-3">Employee Portal</h4>
+						<p class="text-muted mb-0">Employees access personal dashboards to view schedules, submit leave applications, and view announcements.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="step-card h-100">
+						<div class="step-number">03</div>
+						<h4 class="fw-bold text-navy mb-3">HR Analytics</h4>
+						<p class="text-muted mb-0">Managers and HR officers oversee applications, approve pending leaves, and export operational reports.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Banner Section -->
+	<section class="py-5 bg-white">
+		<div class="container">
+			<div class="bg-blue-gradient rounded-4 p-5 text-white text-center shadow-lg position-relative overflow-hidden">
+				<div class="position-relative z-1 py-3">
+					<h2 class="display-5 fw-bold mb-3">Ready to Transform Your Workplace?</h2>
+					<p class="lead mb-4 opacity-90 mx-auto" style="max-width: 650px;">
+						Join progressive organizations using HR Synergy to streamline human resources and boost productivity.
+					</p>
+					<div class="d-flex justify-content-center gap-3">
+						<a th:href="@{/login}" class="btn btn-white-primary px-4 py-3 fs-6">
+							<i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Access Dashboard
+						</a>
+						<a th:href="@{/contactus}" class="btn btn-outline-light rounded-pill px-4 py-3 fs-6 fw-bold">
+							<i class="fa-solid fa-headset me-2"></i> Contact Us
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+</body>
+</html>

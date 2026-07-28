@@ -1,0 +1,112 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+
+<body>
+<main>
+	<div class="page-header py-4">
+		<div class="page-block">
+			<div class="row align-items-center">
+				<div class="col-md-12">
+					<ul class="breadcrumb mb-2 text-muted small">
+						<li class="breadcrumb-item"><a th:href="@{/user/userdash}">Home</a></li>
+						<li class="breadcrumb-item active fw-bold text-primary">User Dashboard</li>
+					</ul>
+					<div class="page-header-title">
+						<h2 class="mb-0 text-dark fw-bold">Welcome Back, <span th:text="${user != null ? user.name : 'Job Seeker'}">Job Seeker</span> 👋</h2>
+						<p class="text-muted mb-0">Manage your job search activities, submitted responses, and profile details.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row px-3 g-4 mb-4">
+		<div class="col-md-4">
+			<div class="card border-0 shadow-sm rounded-3 bg-primary text-white p-3">
+				<div class="d-flex align-items-center justify-content-between">
+					<div>
+						<h6 class="text-white-50 text-uppercase mb-1 fs-7 fw-bold">Available Jobs</h6>
+						<h2 class="text-white fw-bold mb-0" th:text="${jobCount}">0</h2>
+					</div>
+					<div class="fs-1 text-white-50">
+						<i class="ti ti-briefcase"></i>
+					</div>
+				</div>
+				<div class="mt-3">
+					<a th:href="@{/user/viewjobs}" class="text-white text-decoration-underline small">View All Posted Jobs &rarr;</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="card border-0 shadow-sm rounded-3 bg-success text-white p-3">
+				<div class="d-flex align-items-center justify-content-between">
+					<div>
+						<h6 class="text-white-50 text-uppercase mb-1 fs-7 fw-bold">My Responses</h6>
+						<h2 class="text-white fw-bold mb-0" th:text="${responseCount}">0</h2>
+					</div>
+					<div class="fs-1 text-white-50">
+						<i class="ti ti-message-dots"></i>
+					</div>
+				</div>
+				<div class="mt-3">
+					<a th:href="@{/user/giveresponse}" class="text-white text-decoration-underline small">Create New Response &rarr;</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="card border-0 shadow-sm rounded-3 bg-dark text-white p-3">
+				<div class="d-flex align-items-center justify-content-between">
+					<div>
+						<h6 class="text-white-50 text-uppercase mb-1 fs-7 fw-bold">Account Security</h6>
+						<h5 class="text-white fw-bold mb-0">Password</h5>
+					</div>
+					<div class="fs-1 text-white-50">
+						<i class="ti ti-lock"></i>
+					</div>
+				</div>
+				<div class="mt-3">
+					<a th:href="@{/user/changepwd}" class="text-white text-decoration-underline small">Change Password &rarr;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row px-3 g-4">
+		<div class="col-md-6">
+			<div class="card border-0 shadow-sm rounded-3 p-4 text-center h-100">
+				<div class="mb-3">
+					<span class="p-3 bg-light-primary rounded-circle d-inline-block">
+						<i class="ti ti-briefcase fs-2 text-primary"></i>
+					</span>
+				</div>
+				<h4 class="fw-bold text-dark mb-2">Explore Posted Jobs</h4>
+				<p class="text-muted small mb-4">View the latest career opportunities, job titles, descriptions, and salary details posted by administrators.</p>
+				<div>
+					<a th:href="@{/user/viewjobs}" class="btn btn-primary px-4 py-2 fw-semibold">
+						<i class="ti ti-eye me-1"></i> View Jobs
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card border-0 shadow-sm rounded-3 p-4 text-center h-100">
+				<div class="mb-3">
+					<span class="p-3 bg-light-success rounded-circle d-inline-block">
+						<i class="ti ti-message-dots fs-2 text-success"></i>
+					</span>
+				</div>
+				<h4 class="fw-bold text-dark mb-2">Create User Response</h4>
+				<p class="text-muted small mb-4">Submit feedback, queries, complaints or suggestions to the HR Synergy management team.</p>
+				<div>
+					<a th:href="@{/user/giveresponse}" class="btn btn-success px-4 py-2 fw-semibold">
+						<i class="ti ti-plus me-1"></i> Give Response
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+</body>
+</html>

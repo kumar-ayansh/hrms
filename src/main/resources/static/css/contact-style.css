@@ -1,0 +1,276 @@
+/* ==========================================================================
+   HR SYNERGY - CONTACT US STYLESHEET (HIGH CONTRAST & ACCESSIBLE)
+   ========================================================================== */
+
+.contact-page-container {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* 1. Contact Hero Section */
+.contact-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+  padding: 80px 0 120px 0;
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+}
+
+.contact-hero-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.contact-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff !important;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.contact-hero-title .accent-text {
+  color: #93c5fd;
+}
+
+.contact-hero-subtitle {
+  font-size: 17px;
+  color: #e0f2fe !important;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 2. Contact Section & Floating Cards */
+.contact-main-section {
+  padding: 0 0 90px 0;
+  margin-top: -70px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Left Info Card */
+.contact-info-card {
+  background: linear-gradient(160deg, #1e3a8a 0%, #0f172a 100%);
+  border-radius: 20px;
+  padding: 42px 36px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(30, 58, 138, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contact-info-card .info-header h3 {
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.contact-info-card .info-header p {
+  color: #cbd5e1 !important;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 30px 0;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-info-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #93c5fd !important;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-info-val {
+  font-size: 14px;
+  color: #f8fafc !important;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contact-social-row {
+  display: flex;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.contact-social-icon:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Right Form Card */
+.contact-form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 42px 38px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.contact-form-card h2 {
+  font-weight: 800;
+  color: #0f172a !important;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.contact-form-card .form-desc {
+  color: #64748b !important;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.contact-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.contact-input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2563eb;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.contact-input-icon.top-icon {
+  top: 20px;
+  transform: none;
+}
+
+.contact-form-ctrl {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  padding: 14px 18px 14px 48px !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  font-weight: 500 !important;
+  transition: all 0.25s ease !important;
+}
+
+.contact-form-ctrl::placeholder {
+  color: #94a3b8 !important;
+}
+
+.contact-form-ctrl:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
+  background: #ffffff !important;
+  outline: none !important;
+}
+
+/* 3. Why Contact Us Section */
+.contact-why-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.contact-why-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 22px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.contact-why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.1);
+  border-color: #93c5fd;
+}
+
+.contact-why-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 16px auto;
+  transition: all 0.3s ease;
+}
+
+.contact-why-card:hover .contact-why-icon {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.contact-why-card h5 {
+  font-weight: 700;
+  color: #0f172a !important;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.contact-why-card p {
+  color: #64748b !important;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

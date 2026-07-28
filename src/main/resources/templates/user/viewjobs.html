@@ -1,0 +1,76 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+<body>
+<main>
+  <!-- Page Branding Header -->
+  <div class="page-header py-4">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <ul class="breadcrumb mb-2 text-muted small">
+            <li class="breadcrumb-item"><a href="/admin/admindashboard">Dashboard</a></li>
+            <li class="breadcrumb-item">Jobs</li>
+            <li class="breadcrumb-item active fw-bold text-primary">Posted Jobs</li>
+          </ul>
+          <div class="page-header-title">
+            <h2 class="mb-0 text-dark fw-bold">View Posted Jobs</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Card Layout for Data Table -->
+  <div class="row px-3">
+    <div class="col-sm-12 card border-0 shadow-sm rounded-3">
+      <div class="card-body pt-3 px-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light text-secondary">
+              <tr>
+                <th class="ps-4 text-uppercase fs-7 font-weight-bold">Id</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Title</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Description</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Location</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Salary</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Job Type</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Last Date</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Posted Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Loop through job listings -->
+              <tr th:each="j:${jinfo}">
+                <td class="ps-4 fw-bold text-secondary" th:text="${j.id}"></td>
+                <td>
+                  <span class="fw-semibold text-dark" th:text="${j.title}"></span>
+                </td>
+                <td class="text-wrap" style="max-width: 250px;" th:text="${j.description}"></td>
+                <td>
+                  <span class="badge bg-light text-dark border py-1.5 px-2.5 rounded-pill" th:text="${j.location}"></span>
+                </td>
+                <td>
+                  <span class="fw-bold text-success" th:text="${j.salary}"></span>
+                </td>
+                <td>
+                  <span class="badge bg-primary-light text-primary py-1.5 px-2.5 rounded" th:text="${j.jobtype}"></span>
+                </td>
+                <td class="text-muted" th:text="${j.lastdate}"></td>
+                <td class="text-muted" th:text="${j.posteddate}"></td>
+              </tr>
+              
+              <!-- Empty Database Condition Handling -->
+              <tr th:if="${#lists.isEmpty(jinfo)}">
+                <td colspan="8" class="text-center py-5 text-muted bg-white">
+                  <div class="fs-4 mb-2">⚠️</div>
+                  No active job posts found in the database.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

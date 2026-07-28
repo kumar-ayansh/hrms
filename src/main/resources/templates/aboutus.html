@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" th:replace="~{base::layout(~{::main})}" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>About HR Synergy - Smart Human Resource Solution</title>
+    <link rel="stylesheet" th:href="@{/css/about-style.css}" />
+</head>
+
+<body>
+<main class="about-page-container">
+
+    <!-- 1. HERO SECTION -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="about-hero-badge">
+                        <i class="fa-solid fa-users-gear"></i> Human Resource Management System
+                    </span>
+                    <h1 class="about-hero-title">About HR Synergy</h1>
+                    <p class="about-hero-subtitle">
+                        Smart Human Resource Management System for modern organizations.
+                    </p>
+                    <a th:href="@{/contactus}" class="btn-about-contact">
+                        <i class="fa-solid fa-phone"></i> Contact Us
+                    </a>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="about-hero-glass-card">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2 text-white">Digital HR Platform</h4>
+                        <p class="text-white-50 mb-0 fs-6" style="line-height: 1.6;">
+                            Manage employees, recruitment, leave, feedback and enquiries from one system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT PROJECT SECTION -->
+    <section class="about-project-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img th:src="@{/images/corporate.jpeg}" class="about-project-img" alt="Modern HRMS Team">
+                </div>
+                <div class="col-lg-6">
+                    <span class="about-section-tag">ABOUT PROJECT</span>
+                    <h2 class="about-section-heading">Modern HRMS for smart organizations</h2>
+                    <p class="about-project-text mb-3">
+                        HR Synergy is a modern Human Resource Management System designed to simplify and digitize HR operations. It helps organizations manage employee records, leave, payroll, recruitment, events, feedback and enquiries.
+                    </p>
+                    <p class="about-project-text mb-0">
+                        The system eliminates manual paper-based processes, ensuring accurate tracking, efficient workflows, and data security in everyday HR activities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. OUR MISSION & OUR VISION SECTION -->
+    <section class="about-mission-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="about-card-mv">
+                        <h3>Our Mission</h3>
+                        <p>To simplify HR operations through digital automation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-card-mv">
+                        <h3>Our Vision</h3>
+                        <p>To build a smart, secure and efficient HR management platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CORE FEATURES SECTION -->
+    <section class="about-features-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="about-section-tag">CORE FEATURES</span>
+                <h2 class="about-section-heading">Everything HR needs in one platform</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <h6>Employee Management</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <h6>Attendance Tracking</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <h6>Leave Management</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h6>Payroll Management</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <h6>Recruitment Management</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <h6>Event Management</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h6>Feedback System</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <h6>Enquiry Management</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHY CHOOSE US SECTION -->
+    <section class="about-why-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="about-section-tag">WHY CHOOSE US</span>
+                <h2 class="about-section-heading">Built for speed, security and simplicity</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-circle-check"></i> Easy to Use
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-lock"></i> Secure Login
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-user-shield"></i> Role-Based Access
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-desktop"></i> Professional Dashboard
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-bolt"></i> Fast HR Operations
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-why-pill">
+                        <i class="fa-solid fa-mobile-screen-button"></i> Responsive Design
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TECHNOLOGY USED SECTION -->
+    <section class="about-tech-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="about-section-tag">TECHNOLOGY USED</span>
+                <h2 class="about-section-heading">Powerful technologies behind HR Synergy</h2>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon text-danger">
+                            <i class="fa-brands fa-java"></i>
+                        </div>
+                        <div class="about-tech-name">Java</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon text-success">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="about-tech-name">Spring Boot</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon text-primary">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="about-tech-name">Thymeleaf</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon" style="color: #7952b3;">
+                            <i class="fa-brands fa-bootstrap"></i>
+                        </div>
+                        <div class="about-tech-name">Bootstrap 5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon text-info">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="about-tech-name">MySQL</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="about-tech-card">
+                        <div class="about-tech-icon text-primary">
+                            <i class="fa-solid fa-font-awesome"></i>
+                        </div>
+                        <div class="about-tech-name">Font Awesome</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. STATS RIBBON SECTION -->
+    <section class="about-stats-ribbon">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3 col-6">
+                    <div class="about-stat-item">
+                        <h3>100%</h3>
+                        <p>Digital HR Process</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="about-stat-item">
+                        <h3>24/7</h3>
+                        <p>Employee Access</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="about-stat-item">
+                        <h3>Secure</h3>
+                        <p>Role-Based Login</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="about-stat-item">
+                        <h3>Easy</h3>
+                        <p>HR Management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FLOATING CTA PANEL & BOTTOM HERO BANNER 
+    <section class="about-bottom-wrapper">
+        <div class="container">
+            <div class="about-floating-card">
+                <h3>Built for Modern HR Teams</h3>
+                <p>
+                    HR Synergy is designed for organizations that value seamless Human Resource processing, automation and employee success.
+                </p>
+            </div>
+        </div> -->
+
+        <div class="about-bottom-hero">
+            <div class="container">
+                <h2>Ready to Manage HR Smarter?</h2>
+                <p>Start using HR Synergy and transform your HR operations today.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a th:href="@{/login}" class="btn btn-light rounded-pill px-4 py-2 fw-semibold">
+                        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Login
+                    </a>
+                    <a th:href="@{/contactus}" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold">
+                        <i class="fa-solid fa-envelope me-1"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

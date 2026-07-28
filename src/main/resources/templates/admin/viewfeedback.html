@@ -1,0 +1,233 @@
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<body>
+<main>
+  <div class="page-header py-4">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <ul class="breadcrumb mb-2 text-muted small">
+            <li class="breadcrumb-item"><a href="/admin/admindashboard"><i class="ti ti-home me-1"></i>Dashboard</a></li>
+            <li class="breadcrumb-item active fw-bold text-primary">User Feedback & Responses</li>
+          </ul>
+          <div class="page-header-title">
+            <h2 class="mb-1 text-dark fw-bold">User Responses & Feedback Management</h2>
+            <p class="text-muted mb-0 small">Review responses, user contact details, update status, and send replies directly to job seekers.</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <div class="input-group input-group-sm" style="max-width: 250px; float: right;">
+            <span class="input-group-text bg-white"><i class="ti ti-search"></i></span>
+            <input type="text" id="adminFeedbackSearch" class="form-control" placeholder="Search by name, ID, phone..." onkeyup="filterFeedbackTable()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div th:if="${msg}" class="alert alert-success alert-dismissible fade show mx-3 my-2 shadow-sm border-0 border-start border-4 border-success" role="alert">
+    <div class="d-flex align-items-center">
+      <i class="ti ti-circle-check fs-3 me-2 text-success"></i>
+      <div>
+        <strong class="d-block">System Notification</strong>
+        <span th:text="${msg}"></span>
+      </div>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="row px-3">
+    <div class="col-sm-12 card border-0 shadow-sm rounded-3">
+      <div class="card-body pt-3 px-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0" id="feedbackTable">
+            <thead class="table-light text-secondary">
+              <tr>
+                <th class="ps-4 text-uppercase fs-7 font-weight-bold" style="width: 80px;">User ID</th>
+                <th class="text-uppercase fs-7 font-weight-bold">User Name</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Contact No</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Email</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Type</th>
+                <th class="text-uppercase fs-7 font-weight-bold">Subject</th>
+                <th class="text-uppercase fs-7 font-weight-bold" style="width: 100px;">Status</th>
+                <th class="text-uppercase fs-7 font-weight-bold" style="width: 130px;">Posted Date</th>
+                <th class="text-uppercase fs-7 font-weight-bold text-end pe-4" style="width: 120px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="r:${resList}">
+                <td class="ps-4">
+                  <span class="badge bg-light text-dark border fw-bold" th:text="${'#' + (r.userid != 0 ? r.userid : r.id)}">#1</span>
+                </td>
+                <td class="fw-bold text-dark">
+                  <i class="ti ti-user me-1 text-primary"></i>
+                  <span th:text="${r.name != null ? r.name : 'Job Seeker'}">Job Seeker</span>
+                </td>
+                <td>
+                  <span class="badge bg-light-primary text-primary fw-semibold" th:text="${r.contactno != null and r.contactno != '' ? r.contactno : 'N/A'}">N/A</span>
+                </td>
+                <td class="text-muted small" th:text="${r.emailaddress != null ? r.emailaddress : 'N/A'}"></td>
+                <td>
+                  <span th:if="${r.responsetype == 'Feedback'}" class="badge bg-info text-white py-1 px-2.5 rounded-pill"><i class="ti ti-thumb-up me-1"></i>Feedback</span>
+                  <span th:if="${r.responsetype == 'Complaint'}" class="badge bg-danger text-white py-1 px-2.5 rounded-pill"><i class="ti ti-alert-circle me-1"></i>Complaint</span>
+                  <span th:if="${r.responsetype == 'Suggestion'}" class="badge bg-warning text-dark py-1 px-2.5 rounded-pill"><i class="ti ti-bulb me-1"></i>Suggestion</span>
+                  <span th:if="${r.responsetype == 'Query'}" class="badge bg-primary text-white py-1 px-2.5 rounded-pill"><i class="ti ti-help me-1"></i>Query</span>
+                  <span th:if="${r.responsetype != 'Feedback' and r.responsetype != 'Complaint' and r.responsetype != 'Suggestion' and r.responsetype != 'Query'}" class="badge bg-secondary text-white py-1 px-2.5 rounded-pill" th:text="${r.responsetype}"></span>
+                </td>
+                <td class="fw-semibold text-dark text-truncate" style="max-width: 140px;" th:text="${r.subject}" th:title="${r.subject}"></td>
+                <td>
+                  <span th:if="${r.status == 'Resolved'}" class="badge bg-success text-white py-1 px-2 rounded"><i class="ti ti-check me-1"></i>Resolved</span>
+                  <span th:if="${r.status == 'In Progress'}" class="badge bg-primary text-white py-1 px-2 rounded"><i class="ti ti-clock me-1"></i>In Progress</span>
+                  <span th:if="${r.status == 'Pending' or r.status == null}" class="badge bg-warning text-dark py-1 px-2 rounded"><i class="ti ti-hourglass-empty me-1"></i>Pending</span>
+                </td>
+                <td class="text-muted small" th:text="${r.posteddate}"></td>
+                <td class="text-end pe-4">
+                  <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary" th:onclick="adminViewModal([[${r.id}]], [[${r.userid}]], [[${r.name}]], [[${r.emailaddress}]], [[${r.contactno}]], [[${r.responsetype}]], [[${r.subject}]], [[${r.responsetext}]], [[${r.posteddate}]], [[${r.status}]], [[${r.adminreply}]])" title="View Details & Reply">
+                      <i class="ti ti-eye"></i>
+                    </button>
+                    <a th:href="@{/admin/deletefeedback(id=${r.id})}" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this user response?');" title="Delete Response">
+                      <i class="ti ti-trash"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr th:if="${#lists.isEmpty(resList)}">
+                <td colspan="9" class="text-center py-5 text-muted bg-white">
+                  <div class="fs-2 mb-2"><i class="ti ti-message-off text-muted opacity-50"></i></div>
+                  <h6 class="fw-semibold text-secondary">No User Responses Found</h6>
+                  <p class="small text-muted mb-0">No feedback or queries have been submitted by job seekers yet.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="adminViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-3">
+        <div class="modal-header bg-light py-3">
+          <h5 class="modal-header-title mb-0 text-dark fw-bold">
+            <i class="ti ti-message-dots me-2 text-primary"></i>User Feedback Details & Reply
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/admin/replyfeedback" method="post">
+          <input type="hidden" id="admModalResId" name="id" />
+          <div class="modal-body p-4">
+            <!-- User Contact & Info Box -->
+            <div class="p-3 bg-light rounded-3 mb-3 border">
+              <div class="row g-3 align-items-center">
+                <div class="col-sm-3">
+                  <small class="text-muted d-block fs-8 fw-semibold">USER ID</small>
+                  <span id="admModalUserId" class="badge bg-primary fs-7"></span>
+                </div>
+                <div class="col-sm-3">
+                  <small class="text-muted d-block fs-8 fw-semibold">USER NAME</small>
+                  <strong id="admModalName" class="text-dark fs-7"></strong>
+                </div>
+                <div class="col-sm-3">
+                  <small class="text-muted d-block fs-8 fw-semibold">CONTACT NUMBER</small>
+                  <span id="admModalContact" class="badge bg-light-primary text-primary fw-bold fs-7"></span>
+                </div>
+                <div class="col-sm-3">
+                  <small class="text-muted d-block fs-8 fw-semibold">EMAIL ADDRESS</small>
+                  <span id="admModalEmail" class="text-dark small"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span id="admModalCategory" class="badge fs-7"></span>
+              <span id="admModalDate" class="text-muted small"></span>
+            </div>
+
+            <div class="mb-3">
+              <small class="text-muted d-block fs-8 fw-semibold text-uppercase">Subject</small>
+              <h6 id="admModalSubject" class="fw-bold text-dark mb-0"></h6>
+            </div>
+
+            <div class="mb-4">
+              <small class="text-muted d-block fs-8 fw-semibold text-uppercase mb-1">User Message</small>
+              <div class="p-3 bg-white rounded-3 text-dark border" id="admModalMessage" style="white-space: pre-wrap; min-height: 80px;"></div>
+            </div>
+
+            <hr class="my-3 text-muted opacity-25">
+
+            <!-- Admin Reply & Status Form Controls -->
+            <div class="bg-light p-3 rounded-3 border">
+              <h6 class="fw-bold text-primary mb-3"><i class="ti ti-reply me-1"></i> Admin Response & Status Update</h6>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label for="admStatusSelect" class="form-label fw-semibold text-dark">Update Status</label>
+                  <select id="admStatusSelect" name="status" class="form-select" required>
+                    <option value="Pending">🟡 Pending</option>
+                    <option value="In Progress">🔵 In Progress</option>
+                    <option value="Resolved">🟢 Resolved</option>
+                  </select>
+                </div>
+                <div class="col-md-8">
+                  <label for="admReplyText" class="form-label fw-semibold text-dark">Admin Reply Message to User</label>
+                  <textarea id="admReplyText" name="adminreply" class="form-control" rows="3" placeholder="Type your reply message to the job seeker here..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light border-top-0 py-3">
+            <button type="button" class="btn btn-secondary px-4 btn-sm fw-semibold" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary px-4 btn-sm fw-semibold shadow-sm"><i class="ti ti-check me-1"></i> Save & Send Reply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function adminViewModal(id, userid, name, email, contact, type, subject, message, date, status, adminreply) {
+      document.getElementById('admModalResId').value = id;
+      document.getElementById('admModalUserId').textContent = '#' + (userid && userid !== 0 ? userid : id);
+      document.getElementById('admModalName').textContent = name || 'Job Seeker';
+      document.getElementById('admModalEmail').textContent = email || 'N/A';
+      document.getElementById('admModalContact').textContent = contact || 'N/A';
+      document.getElementById('admModalCategory').textContent = type || 'Response';
+      document.getElementById('admModalSubject').textContent = subject || 'No Subject';
+      document.getElementById('admModalMessage').textContent = message || 'No Message';
+      document.getElementById('admModalDate').textContent = date || '';
+      document.getElementById('admStatusSelect').value = status || 'Pending';
+      document.getElementById('admReplyText').value = adminreply || '';
+
+      const badge = document.getElementById('admModalCategory');
+      badge.className = 'badge fs-7 ';
+      if (type === 'Feedback') badge.classList.add('bg-info', 'text-white');
+      else if (type === 'Complaint') badge.classList.add('bg-danger', 'text-white');
+      else if (type === 'Suggestion') badge.classList.add('bg-warning', 'text-dark');
+      else badge.classList.add('bg-primary', 'text-white');
+
+      var modal = new bootstrap.Modal(document.getElementById('adminViewModal'));
+      modal.show();
+    }
+
+    function filterFeedbackTable() {
+      const input = document.getElementById('adminFeedbackSearch');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('feedbackTable');
+      const trs = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < trs.length; i++) {
+        const tr = trs[i];
+        if (tr.getElementsByTagName('td').length <= 1) continue;
+        const text = tr.textContent.toLowerCase();
+        if (text.indexOf(filter) > -1) {
+          tr.style.display = '';
+        } else {
+          tr.style.display = 'none';
+        }
+      }
+    }
+  </script>
+</main>
+</body>
+</html>

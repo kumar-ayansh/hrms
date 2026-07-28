@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" th:fragment="layout(content)" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title> Karam - HRMS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom White & Blue Theme CSS -->
+    <link rel="stylesheet" th:href="@{/css/theme.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/about-style.css}" />
+    <link rel="stylesheet" th:href="@{/css/registration-styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/contact-style.css}" />
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center me-4" th:href="@{/}">
+                <div class="icon-box-sm me-2">
+                    <i class="fa-solid fa-users-gear text-primary fs-4"></i>
+                </div>
+                <div>
+                    <span class="h4 fw-bold text-navy mb-0 d-block leading-none" style="letter-spacing: -0.5px;">HR Synergy</span>
+                    <small class="text-muted fw-semibold" style="font-size: 0.725rem;">Smart HR Solution</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}"><i class="fa-solid fa-house me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/jobs}"><i class="fa-solid fa-briefcase me-1"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/aboutus}"><i class="fa-solid fa-circle-info me-1"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactus}"><i class="fa-solid fa-envelope me-1"></i> Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/registration}"><i class="fa-solid fa-user-plus me-1"></i> Registration</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-blue-outline py-2 px-3" th:href="@{/login}">
+                        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Login
+                    </a>
+                    <a class="btn btn-blue-primary py-2 px-3" th:href="@{/adminlogin}">
+                        <i class="fa-solid fa-user-shield me-1"></i> Admin Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Main Content Container -->
+    <div style="min-height: 70vh;">
+        <div th:replace="${content}"></div>
+    </div>
+
+    <!-- Footer Start -->
+    <footer class="custom-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-box-sm bg-white me-2">
+                            <i class="fa-solid fa-users-gear text-primary fs-5"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-0">HR Synergy</h4>
+                    </div>
+                    <p class="text-slate mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                        A comprehensive Human Resource Management System empowering organizations with seamless workforce operations, recruitment, attendance, leave management, and automated payroll workflows.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                        <li><a th:href="@{/}" class="text-decoration-none"><i class="fa-solid fa-chevron-right text-primary me-1 fs-6"></i> Home</a></li>
+                        <li><a th:href="@{/jobs}" class="text-decoration-none"><i class="fa-solid fa-chevron-right text-primary me-1 fs-6"></i> View Jobs</a></li>
+                        <li><a th:href="@{/aboutus}" class="text-decoration-none"><i class="fa-solid fa-chevron-right text-primary me-1 fs-6"></i> About Us</a></li>
+                        <li><a th:href="@{/registration}" class="text-decoration-none"><i class="fa-solid fa-chevron-right text-primary me-1 fs-6"></i> Job Seeker Register</a></li>
+                        <li><a th:href="@{/contactus}" class="text-decoration-none"><i class="fa-solid fa-chevron-right text-primary me-1 fs-6"></i> Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5>Core Modules</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2" style="font-size: 0.95rem;">
+                        <li class="text-light"><i class="fa-solid fa-check text-primary me-2"></i> Employee Profile Management</li>
+                        <li class="text-light"><i class="fa-solid fa-check text-primary me-2"></i> Attendance & Leave Tracking</li>
+                        <li class="text-light"><i class="fa-solid fa-check text-primary me-2"></i> Automated Payroll Processing</li>
+                        <li class="text-light"><i class="fa-solid fa-check text-primary me-2"></i> Job Portal & Recruitment</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact Information</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3" style="font-size: 0.95rem;">
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-primary fs-5"></i>
+                            <span>Lucknow, Uttar Pradesh, India</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-envelope text-primary fs-5"></i>
+                            <span>support@hrsynergy.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-phone text-primary fs-5"></i>
+                            <span>+91 (800) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3 text-center">
+            <div class="container">
+                <p class="small">&copy; 2026 HR Synergy. All rights reserved. Designed & Developed by Ayansh Yadav .</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+

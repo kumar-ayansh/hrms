@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" th:replace="~{base::layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HR Synergy — Registration</title>
+    <link rel="stylesheet" th:href="@{/css/registration-styles.css}" />
+</head>
+<body>
+<main class="reg-page-container">
+
+    <!-- 1. HERO SECTION -->
+    <header class="reg-hero">
+        <div class="container">
+            <span class="reg-hero-badge">
+                <i class="fa-solid fa-user-plus"></i> HR SYNERGY · JOIN US
+            </span>
+            <h1 class="reg-hero-title">
+                Create Your <span class="accent-text">HR Synergy</span> Account
+            </h1>
+            <p class="reg-hero-subtitle">
+                Register once and get access to job opportunities, HR services, and a personalized dashboard.
+            </p>
+        </div>
+    </header>
+
+    <!-- 2. MAIN REGISTRATION SECTION -->
+    <section class="reg-main-section">
+        <div class="container">
+            <div class="row g-4">
+                
+                <!-- LEFT INFO CARD -->
+                <div class="col-lg-5">
+                    <div class="reg-info-card h-100">
+                        <div class="info-header text-center">
+                            <div class="mb-3">
+                                <i class="fa-solid fa-id-card fa-3x text-info"></i>
+                            </div>
+                            <h3>Why Join HR Synergy?</h3>
+                            <p>Create one profile and unlock everything our HR platform has to offer.</p>
+                        </div>
+
+                        <div class="reg-info-list">
+                            <div class="reg-info-item">
+                                <div class="reg-info-icon">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <div class="reg-info-label">JOB OPPORTUNITIES</div>
+                                    <div class="reg-info-val">Get matched with top roles based on your qualifications and skills.</div>
+                                </div>
+                            </div>
+
+                            <div class="reg-info-item">
+                                <div class="reg-info-icon">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <div class="reg-info-label">SECURE ACCOUNT</div>
+                                    <div class="reg-info-val">Your data is protected with encrypted, role-based security.</div>
+                                </div>
+                            </div>
+
+                            <div class="reg-info-item">
+                                <div class="reg-info-icon">
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                </div>
+                                <div>
+                                    <div class="reg-info-label">PERSONAL DASHBOARD</div>
+                                    <div class="reg-info-val">Track job applications, attendance, and payroll from one place.</div>
+                                </div>
+                            </div>
+
+                            <div class="reg-info-item">
+                                <div class="reg-info-icon">
+                                    <i class="fa-solid fa-envelope-circle-check"></i>
+                                </div>
+                                <div>
+                                    <div class="reg-info-label">ONE EMAIL, ONE ACCOUNT</div>
+                                    <div class="reg-info-val">Every account is tied to a unique, verified email address.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reg-social-row">
+                            <a href="#" class="reg-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="reg-social-icon"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="reg-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT FORM CARD -->
+                <div class="col-lg-7">
+                    <div class="reg-form-card h-100">
+                        <h2>Registration Form</h2>
+                        <p class="form-desc">Fill in your details below. Fields marked <span class="text-danger">*</span> are required.</p>
+
+                        <div th:if="${msg}" class="alert alert-success mb-4 rounded-3 fw-semibold" role="alert" th:text="${msg}"></div>
+                        <div id="formAlert" class="alert d-none" role="alert"></div>
+
+                        <form id="regForm" method="post" th:action="@{/registration}" th:object="${udto}">
+
+                            <!-- Full Name -->
+                            <label class="reg-field-label" for="fullName">Full Name <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-user reg-input-icon"></i>
+                                <input type="text" id="fullName" class="form-control reg-form-ctrl" th:field="*{name}" placeholder="Enter your full name" required>
+                            </div>
+
+                            <!-- Gender -->
+                            <label class="reg-field-label" for="gender">Gender <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-venus-mars reg-input-icon"></i>
+                                <select id="gender" class="form-select reg-form-ctrl" th:field="*{gender}" required>
+                                    <option value="" selected disabled>Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <!-- Contact Number -->
+                            <label class="reg-field-label" for="contactNumber">Contact Number <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-phone reg-input-icon"></i>
+                                <input type="tel" id="contactNumber" class="form-control reg-form-ctrl" th:field="*{contactno}" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
+
+                            <!-- Email -->
+                            <label class="reg-field-label" for="email">Email Address <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-envelope reg-input-icon"></i>
+                                <input type="email" id="email" class="form-control reg-form-ctrl" th:field="*{emailaddress}" placeholder="you@example.com" required>
+                            </div>
+                            <div class="reg-field-help">We only allow one account per email address.</div>
+
+                            <!-- Password -->
+                            <label class="reg-field-label" for="password">Password <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-lock reg-input-icon"></i>
+                                <input type="password" id="password" class="form-control reg-form-ctrl" th:field="*{password}" placeholder="Minimum 8 characters" minlength="8" required>
+                                <button type="button" class="toggle-password-btn" id="togglePassword"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+
+                            <!-- Qualification -->
+                            <label class="reg-field-label" for="qualification">Qualification <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-graduation-cap reg-input-icon"></i>
+                                <select id="qualification" class="form-select reg-form-ctrl" th:field="*{qualification}" required>
+                                    <option value="" selected disabled>Select your highest qualification</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Diploma">Diploma</option>
+                                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                    <option value="Master's Degree">Master's Degree</option>
+                                    <option value="PhD">PhD</option>
+                                    <option value="Programming Languages (Java, Python, C++)">Programming Languages (Java, Python, C++)</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Experience -->
+                            <label class="reg-field-label" for="experience">Experience (in years) <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-chart-line reg-input-icon"></i>
+                                <input type="number" id="experience" class="form-control reg-form-ctrl" th:field="*{experience}" placeholder="e.g. 2" min="0" max="50" required>
+                            </div>
+
+                            <!-- Key Skills -->
+                            <label class="reg-field-label" for="skills">Key Skills <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-wand-magic-sparkles reg-input-icon"></i>
+                                <input type="text" id="skills" class="form-control reg-form-ctrl" th:field="*{keyskill}" placeholder="e.g. Java, Python, SQL" required>
+                            </div>
+                            <div class="reg-field-help">Separate multiple skills with a comma.</div>
+
+                            <!-- Address -->
+                            <label class="reg-field-label" for="address">Address <span class="text-danger">*</span></label>
+                            <div class="reg-input-group">
+                                <i class="fa-solid fa-location-dot reg-input-icon top-icon"></i>
+                                <textarea id="address" class="form-control reg-form-ctrl" rows="4" th:field="*{address}" placeholder="House no, street, city, state, PIN" required></textarea>
+                            </div>
+
+                            <div class="d-flex gap-3 flex-wrap mt-4">
+                                <button type="submit" class="btn btn-blue-primary px-4 py-3 fw-bold rounded-pill">
+                                    Create Account <i class="fa-solid fa-user-check ms-1"></i>
+                                </button>
+                                <a th:href="@{/}" class="btn btn-blue-outline px-4 py-3 fw-bold rounded-pill">
+                                    <i class="fa-solid fa-arrow-left me-1"></i> Back to Home
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WHY JOIN SECTION -->
+    <section class="reg-why-section">
+        <div class="container text-center">
+            <span class="about-section-tag">BENEFITS</span>
+            <h2 class="about-section-heading">Why Register with HR Synergy?</h2>
+            <p class="text-muted mx-auto mb-5" style="max-width: 550px;">
+                Joining HR Synergy grants you instant access to a suite of professional HR tools and career opportunities.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-6 col-lg-3">
+                    <div class="reg-why-card">
+                        <div class="reg-why-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h5>Top Job Listings</h5>
+                        <p>Apply for verified job opportunities from leading companies.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="reg-why-card">
+                        <div class="reg-why-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h5>Data Protection</h5>
+                        <p>Your profile and personal credentials are protected with enterprise security.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="reg-why-card">
+                        <div class="reg-why-icon">
+                            <i class="fa-solid fa-id-badge"></i>
+                        </div>
+                        <h5>Self-Service Portal</h5>
+                        <p>Manage your profile, skills, qualifications, and preferences anytime.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="reg-why-card">
+                        <div class="reg-why-icon">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h5>Dedicated Support</h5>
+                        <p>Get help from our HR team for any registration or account query.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script th:src="@{/js/registration-script.js}"></script>
+</body>
+</html>
